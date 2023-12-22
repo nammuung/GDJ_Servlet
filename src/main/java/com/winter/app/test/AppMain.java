@@ -1,11 +1,48 @@
 package com.winter.app.test;
 
+import java.util.List;
+
+import com.winter.app.departments.DepartmentDAO;
+import com.winter.app.departments.DepartmentDTO;
+import com.winter.app.regions.RegionDAO;
+import com.winter.app.regions.RegionDTO;
 import com.winter.app.util.DBConnector;
+import com.winter.app.views.View;
 
 public class AppMain {
+
 	public static void main(String[] args) {
-		
-		DBConnector dbConnector = new DBConnector();
-		dbConnector.getConnector();
+		DepartmentDAO dao = new DepartmentDAO();
+		RegionDAO regionDAO = new RegionDAO();
+		View view = new View();
+		try {
+			 RegionDTO regionDTO = new RegionDTO();
+			 regionDTO.setRegion_id(66);
+			 regionDTO = regionDAO.getDetail(regionDTO);
+			 
+			 DepartmentDTO departmentDTO = new DepartmentDTO();
+			 departmentDTO.setDepartment_id(1);
+			 departmentDTO = dao.getdao(departmentDTO);
+			 
+			 if(departmentDTO!=null) {
+				 System.out.println(departmentDTO.getDepartment_id());
+			 }else {
+				 System.out.println("없음");
+			 }
+
+		 
+			 
+			 if(regionDTO!=null) {
+				 System.out.println(regionDTO.getRegion_name());
+			 }else {
+				 System.out.println("없는 ID");
+			 }
+			 
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
+
 }

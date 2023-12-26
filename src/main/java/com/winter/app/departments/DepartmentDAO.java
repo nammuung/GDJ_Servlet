@@ -13,6 +13,25 @@ import com.winter.app.regions.RegionDTO;
 import com.winter.app.util.DBConnector;
 
 public class DepartmentDAO {
+	
+	public int add(DepartmentDTO departmentDTO) throws Exception{
+		Connection con = DBConnector.getConnector();
+		String sql = "INSERT INTO DEPARTMENTS (department_id, department_name, manager_id, location_id) values(?, ?, ?, ?)";
+		PreparedStatement st = con.prepareStatement(sql);
+		st.setInt(1,departmentDTO.getDepartment_id());
+		st.setString(2, departmentDTO.getDepartment_name());
+		st.setInt(3, departmentDTO.getManager_id());
+		st.setInt(4, departmentDTO.getLocation_id());
+		int result = st.executeUpdate();
+		DBConnector.disConnect(st, con);
+		return result;
+		
+	}
+	
+	
+	
+	
+	
 
 	public DepartmentDTO getdao(DepartmentDTO departmentDTO) throws Exception{
 		Connection con = DBConnector.getConnector();
@@ -30,16 +49,7 @@ public class DepartmentDAO {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		
 	
 	public List<DepartmentDTO> connector() throws Exception{
 		Connection con = DBConnector.getConnector();

@@ -8,13 +8,13 @@ public class RegionDTO {
 	//3. 생성자는 여러개 가능하지만, 기본생성자는 필수로 가져가야함
 	//4. 멤버변수의 이름과 DataType은 databases의 Table의 coulm_name과 DataType 일치
 	
-	private Integer region_id;
+	private int region_id;
 	private String region_name;
 	
-	public Integer getRegion_id() {
+	public int getRegion_id() {
 		return region_id;
 	}
-	public void setRegion_id(Integer region_id) {
+	public void setRegion_id(int region_id) {
 		this.region_id = region_id;
 	}
 	public String getRegion_name() {

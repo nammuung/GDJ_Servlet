@@ -20,15 +20,15 @@ public class DepartmentDAO {
 		Connection con = DBConnector.getConnector();
 		String sql = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID=?";
 		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, departmentDTO.getDepartment_id());
+		st.setInt(1,departmentDTO.getDepartment_id());
 		ResultSet rs = st.executeQuery();
 		DepartmentDTO resultDTO=null;
 		if(rs.next()) {
 			resultDTO = new DepartmentDTO();
-			resultDTO.setDepartment_id(rs.getInt("DEPARTMENT_ID"));
-			resultDTO.setDepartment_name(rs.getString("DEPARTMENT_NAME"));
-			resultDTO.setManager_id(rs.getInt("MANAGER_ID"));
-			resultDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			resultDTO.setDepartment_id(rs.getInt("department_id"));
+			resultDTO.setDepartment_name(rs.getString("department_name"));
+			resultDTO.setManager_id(rs.getInt("manager_id"));
+			resultDTO.setLocation_id(rs.getInt("location_id"));
 		}
 		return resultDTO;
 	}

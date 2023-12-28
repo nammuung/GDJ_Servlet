@@ -2,12 +2,13 @@
 <%@page import="java.util.List"%>
 <%@page import="com.winter.app.regions.RegionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <%
-// JAVA 구역 - 스크립틀릿
-RegionDAO regionDAO = new RegionDAO();
-List<RegionDTO> ar = regionDAO.getList();
-%>
+	//java 구역- 스크립틀릿
+	RegionDAO regionDAO = new RegionDAO();
+	List<RegionDTO> ar = regionDAO.getList();
+%>    
+<!--  -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,26 +16,28 @@ List<RegionDTO> ar = regionDAO.getList();
 <title>Insert title here</title>
 </head>
 <body>
+	Regions List
 	<h1>Regions List</h1>
 	<table>
 		<thead>
-		
 			<tr>
 				<th>REGION_ID</th>
 				<th>REGION_NAME</th>
 			</tr>
 		</thead>
-
+		
 		<tbody>
-				<%for (RegionDTO regionDTO : ar) {%> <!-- // 표현식 표현식은 세미콜론 사용안함 -->
-					<tr>
-					<td><%= regionDTO.getRegion_id() %></td>
-					<td><a href="./detail.jsp?region_id=<%= regionDTO.getRegion_id()%>"><%= regionDTO.getRegion_name() %></a></td>
-					</tr>
-				<%}%>
+		<% for(RegionDTO regionDTO:ar){%>
+			<tr>
+				<td><%= regionDTO.getRegion_id() %> </td>
+				<td><a href="./detail.jsp?region_id=<%= regionDTO.getRegion_id()%>"><%= regionDTO.getRegion_name() %></a></td>
+			</tr>
+		<%}%>
 		</tbody>
-
+		
 	</table>
+	
 	<a href="./add.jsp">대륙추가</a>
+
 </body>
 </html>

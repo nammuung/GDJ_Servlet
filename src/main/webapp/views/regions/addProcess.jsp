@@ -2,19 +2,17 @@
 <%@page import="com.winter.app.regions.RegionDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
-   	RegionDAO regionDAO = new RegionDAO();
-   	RegionDTO regionDTO = new RegionDTO();
-   	String id =	request.getParameter("region_id");
-   	String name = request.getParameter("region_name");
-   	  
-   	regionDTO.setRegion_id(Integer.parseInt(id));
-   	regionDTO.setRegion_name(name);
-
-    int result = regionDAO.add(regionDTO); 
-    %>
-        
-    
+<%
+	RegionDAO regionDAO = new RegionDAO();
+	RegionDTO regionDTO = new RegionDTO();
+	String id = request.getParameter("region_id");
+	String name = request.getParameter("region_name");
+	
+	regionDTO.setRegion_id(Integer.parseInt(id));
+	regionDTO.setRegion_name(name);
+	
+	int result = regionDAO.add(regionDTO);
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,15 +21,18 @@
 </head>
 <body>
 	<h1>Add Process</h1>
+	
 	<script type="text/javascript">
-	let result='<%= result%>';
-	if(result>0){
-		alert('등록 성공');
-	}else{
-		alert('등록 실패');
-	}
-	/* a태그랑 다르게 자동으로 가짐 */
-	window.location.href="./list.jsp";
+		let result='<%= result%>';
+		if(result>0){
+			alert('등록 성공');
+		}else {
+			alert('등록 실패')
+		}
+		
+		window.location.href="./list.jsp";
+		
 	</script>
+
 </body>
 </html>

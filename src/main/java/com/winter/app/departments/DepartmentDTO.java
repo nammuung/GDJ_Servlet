@@ -1,7 +1,13 @@
 package com.winter.app.departments;
 
 public class DepartmentDTO {
-
+	
+	private int department_id;
+	private String department_name;
+	private int manager_id;
+	private int location_id;
+	
+	
 	public int getDepartment_id() {
 		return department_id;
 	}
@@ -26,10 +32,7 @@ public class DepartmentDTO {
 	public void setLocation_id(int location_id) {
 		this.location_id = location_id;
 	}
-	private int department_id;
-	private String department_name;
-	private int manager_id;
-	private int location_id;
 	
 	
+
 }
